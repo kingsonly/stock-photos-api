@@ -1,0 +1,44 @@
+version: '3.2'
+
+services:
+
+  stockapimain:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - 8062:8000
+    volumes:
+       # Re-use local composer cache via host-volume
+      - ./:/app
+    networks:
+      - stockapi
+
+      
+
+  mysql:
+    image: mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=Ubuxa##99
+      - MYSQL_DATABASE=forge
+      - MYSQL_USER=forge
+      - MYSQL_PASSWORD=Ubuxa##99
+    networks:
+      - stockapi
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - 6062:80
+    environment:
+      - PMA_HOST=mysql
+      - PMA_PASSWORD=Ubuxa##99
+    restart: unless-stopped
+    volumes:
+    - ./:/app
+    networks:
+      - stockapi
+  
+networks:
+  stockapi:
+    driver: bridge
