@@ -12,10 +12,15 @@ class SiteControllerTest extends TestCase
     /**
      * A basic feature test example.
      */
-    public function test_example(): void
+    public function test_to_see_if_users_registration_information_entered_the_database(): void
     {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
+        $data = [
+            "name" => "kingsley Achumie",
+            "email" => "kingsonly13c@gmail.com",
+            "password" => "ubuxa##99",
+           ];
+        $response = $this->post('/api/register');
+        unset($data["password"]);
+        $response->assertStatus(201)->assertDatabaseHas("users", $data);
     }
 }
