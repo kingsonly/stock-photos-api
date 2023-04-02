@@ -17,21 +17,18 @@ class SiteController extends Controller
     public function login(Request $request)
     {
 
-        $validator = $request->validate([
+        $request->validate([
             'email' => 'required',
             'password' => 'required',
         ]);
 
-        if ($validator->fails()) {
-            return response()->json(['status' => 'error', 'message' => $validator->errors()], 200);
-        }
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $authUser = Auth::user();
             $authUser['token'] = $authUser->createToken('MyAuthApp')->plainTextToken;
 
             return response()->json(['status' => 'success', 'message' => 'user logged in', 'data' => $authUser], 200);
         } else {
-            return response()->json(['status' => 'error', 'message' => 'wrong details', 'data' => ''], 400);
+            return response()->json(['status' => 'error', 'message' => 'wrong details', 'data' => $request->email], 400);
         }
     }
     public function register(Request $request)
@@ -43,9 +40,6 @@ class SiteController extends Controller
             'lastname' => 'required',
         ]);
 
-        if ($validator->fails()) {
-            return response()->json(['status' => 'error', 'message' => $validator->errors()], 200);
-        }
         $user = new User();
         $user->email = $request->input('email');
         //$user->isactive = 1;
@@ -54,13 +48,11 @@ class SiteController extends Controller
         $password = $request->input('password');
         $encriptedPassword = bcrypt($password);
         $user->password = $encriptedPassword;
-        $user->passwordresetcode = substr(str_shuffle("01234567893ABCDEFGHIJKLMN01234567893ABCDEFGHIJKLMN"), -10);
-        $user->emailresetcode = substr(str_shuffle("01234567893ABCDEFGHIJKLMN01234567893ABCDEFGHIJKLMN"), -10);
-        $user->reverse = strrev($request->input('password'));
+        // $user->passwordresetcode = substr(str_shuffle("01234567893ABCDEFGHIJKLMN01234567893ABCDEFGHIJKLMN"), -10);
+        // $user->emailresetcode = substr(str_shuffle("01234567893ABCDEFGHIJKLMN01234567893ABCDEFGHIJKLMN"), -10);
+        // $user->reverse = strrev($request->input('password'));
 
         if ($user->save()) {
-
-            $user->link = time() . str_shuffle("01234567893ABCDEFGHIJKLMN01234567893ABCDEFGHIJKLMN") . $user->emailresetcode;
 
             $token = $user->createToken('MyAuthApp')->plainTextToken;
 
@@ -73,7 +65,7 @@ class SiteController extends Controller
                 //$error = $e->getMessage();
             }
 
-            return response()->json(['status' => 'success', 'message' => "user created successfully", 'data' => $user], 200);
+            return response()->json(['status' => 'success', 'message' => "user created successfully", 'data' => $user], 201);
         } else {
             return response()->json(['status' => 'error', 'message' => 'cannot create user', 'data' => $user], 400);
         }
@@ -85,10 +77,9 @@ class SiteController extends Controller
         $link = \Config::get('constants.frontend');
         $user = new User();
         $code = substr($code, -10);
-        $user = $user::where('emailresetcode', $code)->first();
+        $user = $user::where('email', $code)->first();
 
         if ($user != null) {
-            $user->emailresetcode = "stockphoto" . str_shuffle('1234567');
             $time = new \DateTime("Africa/Lagos");
             $user->email_verified_at = $time->format("Y-m-d h:m:s");
             $user->save();
@@ -101,7 +92,9 @@ class SiteController extends Controller
     public function sendpasswordresetlink(Request $request)
     {
         $time = new \DateTime("Africa/Lagos");
-
+        $request->validate([
+            "email" => "required",
+        ]);
         $email = $request->input('email');
         $user = User::where('email', $email)->first();
 
@@ -113,7 +106,7 @@ class SiteController extends Controller
 
             $user->save();
             $data = array(
-                'firstname' => $user->firstname,
+                'firstname' => $user->name,
 
                 'link' => \Config::get('constants.frontend') . '/recoverpassword/' . time() . $user->passwordresetcode,
             );
@@ -128,7 +121,7 @@ class SiteController extends Controller
 
         }
     }
-    
+
     public function resetpassword(Request $request)
     {
         $validator = $request->validate([

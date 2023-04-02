@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\SiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post("register",[SiteController::class,"register"]);
+Route::get('confirmemail/{link}', [SiteController::class, 'confirmemail'])->name('confirmemail');
+Route::post("login",[SiteController::class,"login"]);
