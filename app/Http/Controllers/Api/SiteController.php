@@ -3,32 +3,40 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\LoginResources;
 use App\Mail\Forgotpassword;
 use App\Mail\Welcomeemail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 class SiteController extends Controller
 {
     //
 
-    public function login(Request $request)
+    public function login(Request $request):LoginResources
     {
-
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'email' => 'required',
             'password' => 'required',
         ]);
+
+        if($validator->fails()){
+          return  new LoginResources([$validator->errors()]);
+        }
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $authUser = Auth::user();
             $authUser['token'] = $authUser->createToken('MyAuthApp')->plainTextToken;
 
-            return response()->json(['status' => 'success', 'message' => 'user logged in', 'data' => $authUser], 200);
+            //return response()->json(['status' => 'success', 'message' => 'user logged in', 'data' => $authUser], 200);
+            $resource = new LoginResources($authUser);
+            return $resource;
         } else {
-            return response()->json(['status' => 'error', 'message' => 'wrong details', 'data' => $request->email], 400);
+            $resource = new LoginResources(['status' => 'error', 'message' => 'wrong details', 'data' => $request->email]);
+            return $resource;
         }
     }
     public function register(Request $request)
@@ -89,6 +97,7 @@ class SiteController extends Controller
             return response()->json(['status' => 'success', 'message' => "We could notverify your email at this time, please retry the entire process", 'data' => $user], 400);
         }
     }
+
     public function sendpasswordresetlink(Request $request)
     {
         $time = new \DateTime("Africa/Lagos");

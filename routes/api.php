@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\SiteController;
+use App\Http\Controllers\Api\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post("register",[SiteController::class,"register"]);
 Route::get('confirmemail/{link}', [SiteController::class, 'confirmemail'])->name('confirmemail');
 Route::post("login",[SiteController::class,"login"]);
+
+// users route
+
+Route::get('allusers', [UserController::class, 'index'])->name('allusers');
+Route::get("getuser/{id}",[UserController::class,'show']);
+Route::get("deleteuser/{id}",[UserController::class,'destroy']);
+Route::get("totalusers",[UserController::class,'totalUsers']);

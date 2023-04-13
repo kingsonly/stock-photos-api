@@ -53,7 +53,7 @@ class SiteControllerTest extends TestCase
         );
     }
 
-    public function test_to_see_if_validatiopn_works(){
+    public function test_to_see_if_validation_works(){
         Mail::fake();
         $data = [
             "firstname" => "kingsley Achumie",
@@ -75,10 +75,11 @@ class SiteControllerTest extends TestCase
         User::factory(1)->create(["email" => $data["email"] ]);
         $response = $this->post("/api/login",$data);
         $response->assertOk()->assertJsonStructure([
-            "status",
-            "message",
+            
             "data"=>[
-                "token"
+                "token",
+                "status",
+                "message",
             ]
         ]);
     }
@@ -86,6 +87,25 @@ class SiteControllerTest extends TestCase
     public function test_that_login_validation_is_working(){
         $data = ["email" => "test"];
         $response = $this->post("/api/login",$data);
-        $response->assertStatus(302);
+        $response->assertStatus(400);
+    }
+
+    public function test_that_login_is_working(){
+        
+        $factoryData = [
+            "email" => "test@test.com",
+        ];
+        User::factory(1)->create($factoryData);
+
+        $data = [
+            "email" => "test@test.com",
+            "password" => "password"
+        ];
+        $response = $this->post("/api/login",$data);
+        $response->assertStatus(200)->assertJsonStructure([
+            "data"=>[
+                "token",
+            ]
+        ]);
     }
 }
