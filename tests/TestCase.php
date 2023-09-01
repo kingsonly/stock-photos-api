@@ -10,17 +10,17 @@ abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
     public function userCreate(){
-        Sanctum::actingAs(
+        return Sanctum::actingAs(
             User::factory()->create(),
             ['*']
         );
 
     }
     public function userpriveCreate(){
-        Sanctum::actingAs(
-            User::factory()->notAnAdmin()->create(),
-            ['*']
-        );
+        // Sanctum::actingAs(
+        //     User::factory()->notAnAdmin()->create(),
+        //     ['*']
+        // );
 
     }
 }

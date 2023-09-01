@@ -15,6 +15,7 @@ class Welcomeemail extends Mailable
      *
      * @return void
      */
+    public $user;
     public function __construct($user)
     {
         $this->user =  $user;
@@ -28,6 +29,6 @@ class Welcomeemail extends Mailable
      public function build()
      {
         
-         return $this->from('trendysetup@gmail.com',  'Bartum Energy')->subject("Welcome to Bartum Energy")->view('emails.welcome')->with('user', $this->user);
+         return $this->from('Boffins@gmail.com',  'Bartum Energy')->subject("Welcome to Bartum Energy")->view('emails.welcome')->with('user', $this->user);
      }
 }

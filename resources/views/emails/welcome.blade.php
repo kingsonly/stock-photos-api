@@ -19,7 +19,7 @@
 
          Please confirm your email by clicking the link below <br>
 
-<a href="{{route('confirmemail', $user->link)}}"> {{route('confirmemail', $user->link)}} </a>
+
 <br>
 
 

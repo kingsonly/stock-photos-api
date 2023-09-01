@@ -23,7 +23,7 @@ class SiteControllerTest extends TestCase
             "email" => "kingsonly13c@gmail.com",
             "password" => "ubuxa##99",
            ];
-        $response = $this->post('/api/register',$data);
+        $response = $this->post('/api/site/register',$data);
         $response->assertStatus(201);
         $newData = [
             "email" => "kingsonly13c@gmail.com",
@@ -40,7 +40,7 @@ class SiteControllerTest extends TestCase
             "email" => "kingsonly13a@gmail.com",
             "password" => "ubuxa##99",
            ];
-        $response = $this->post('/api/register',$data);
+        $response = $this->post('/api/site/register',$data);
         $response->assertStatus(201)->assertJsonStructure(
             [
                 'status',
@@ -51,6 +51,9 @@ class SiteControllerTest extends TestCase
                 ]
             ]
         );
+        Mail::assertSent(\App\Mail\Welcomeemail::class, function ($mail) {
+            return $mail->hasTo('kingsonly13a@gmail.com');
+        });
     }
 
     public function test_to_see_if_validation_works(){
@@ -60,8 +63,9 @@ class SiteControllerTest extends TestCase
             "lastname" => "kingsley Achumie",
             "email" => "kingsonly13a@gmail.com",
            ];
-        $response = $this->post('/api/register',$data);
-        $response->assertStatus(302);
+        $response = $this->post('/api/site/register',$data);
+        $response->assertStatus(400);
+        
     }
 
     // this area deals with test for login
@@ -73,7 +77,7 @@ class SiteControllerTest extends TestCase
         ];
         //create a user with the above $data
         User::factory(1)->create(["email" => $data["email"] ]);
-        $response = $this->post("/api/login",$data);
+        $response = $this->post("/api/site/login",$data);
         $response->assertOk()->assertJsonStructure([
             
             "data"=>[
@@ -86,7 +90,7 @@ class SiteControllerTest extends TestCase
 
     public function test_that_login_validation_is_working(){
         $data = ["email" => "test"];
-        $response = $this->post("/api/login",$data);
+        $response = $this->post("/api/site/login",$data);
         $response->assertStatus(400);
     }
 
@@ -101,11 +105,36 @@ class SiteControllerTest extends TestCase
             "email" => "test@test.com",
             "password" => "password"
         ];
-        $response = $this->post("/api/login",$data);
+        $response = $this->post("/api/site/login",$data);
         $response->assertStatus(200)->assertJsonStructure([
             "data"=>[
                 "token",
             ]
         ]);
     }
+
+    public function test_that_users_can_request_password_update(){
+        
+        $factoryData = [
+            "email" => "test2@test.com",
+        ];
+        User::factory(1)->create($factoryData);
+
+        $data = [
+            "email" => "test2@test.com",
+        ];
+        $response = $this->post("/api/site/sendpasswordresetlink",$data);
+        $response->assertStatus(200)->assertJsonStructure([
+            "status",
+            "message",
+            "data"
+        ])->assertJson(
+            [
+                'status' => 'success', 
+                'message' => 'Please check your email for further instruction'
+            ]
+        );
+    }
+
+    
 }

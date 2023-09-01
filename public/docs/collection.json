@@ -1,0 +1,528 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "StockPhotos",
+        "_postman_id": "636467fb-f3ec-4e4c-acc3-e068a4fb07e4",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET api\/user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display a listing of the resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user\/allusers",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user\/allusers"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"name\":\"Gavin Abbott\",\"email\":\"noe.wisozk@example.org\",\"file\":[{\"type\":\"image\",\"file\":\"0\",\"name\":\"Prof. Mariano Mitchell\",\"views\":3,\"date\":\"2023-04-12T14:05:48.000000Z\",\"tags\":[{\"tag_name\":{\"name\":\"Isai Murray\"}},{\"tag_name\":{\"name\":\"Isai Murray\"}},{\"tag_name\":{\"name\":\"Isai Murray\"}},{\"tag_name\":{\"name\":\"Isai Murray\"}},{\"tag_name\":{\"name\":\"Isai Murray\"}},{\"tag_name\":{\"name\":\"Isai Murray\"}},{\"tag_name\":{\"name\":\"Isai Murray\"}},{\"tag_name\":{\"name\":\"Isai Murray\"}},{\"tag_name\":{\"name\":\"Isai Murray\"}},{\"tag_name\":{\"name\":\"Isai Murray\"}}]},{\"type\":\"image\",\"file\":\"0\",\"name\":\"Jaunita Howell\",\"views\":9,\"date\":\"2023-04-12T14:05:48.000000Z\",\"tags\":[]},{\"type\":\"image\",\"file\":\"0\",\"name\":\"Kristin White\",\"views\":1,\"date\":\"2023-04-12T14:05:48.000000Z\",\"tags\":[]},{\"type\":\"video\",\"file\":\"0\",\"name\":\"Athena Ebert Jr.\",\"views\":0,\"date\":\"2023-04-12T14:05:48.000000Z\",\"tags\":[]},{\"type\":\"video\",\"file\":\"0\",\"name\":\"Miss Josefina Grady\",\"views\":2,\"date\":\"2023-04-12T14:05:48.000000Z\",\"tags\":[]},{\"type\":\"video\",\"file\":\"0\",\"name\":\"Dolly Buckridge\",\"views\":5,\"date\":\"2023-04-12T14:05:48.000000Z\",\"tags\":[]},{\"type\":\"video\",\"file\":\"0\",\"name\":\"Alberto Howell\",\"views\":8,\"date\":\"2023-04-12T14:05:48.000000Z\",\"tags\":[]},{\"type\":\"image\",\"file\":\"0\",\"name\":\"Prof. Alfonso Wintheiser\",\"views\":9,\"date\":\"2023-04-12T14:05:48.000000Z\",\"tags\":[]},{\"type\":\"image\",\"file\":\"0\",\"name\":\"Reuben Hintz\",\"views\":5,\"date\":\"2023-04-12T14:05:48.000000Z\",\"tags\":[]},{\"type\":\"video\",\"file\":\"0\",\"name\":\"Mrs. Verla Grady\",\"views\":3,\"date\":\"2023-04-12T14:05:48.000000Z\",\"tags\":[]}]},{\"name\":\"Frederic Hane\",\"email\":\"paul.tillman@example.org\",\"file\":[]},{\"name\":\"Kennedy White\",\"email\":\"mwatsica@example.net\",\"file\":[]},{\"name\":\"Cloyd Brekke\",\"email\":\"bogan.benjamin@example.net\",\"file\":[]},{\"name\":\"Monica Marvin\",\"email\":\"klein.kelly@example.org\",\"file\":[]},{\"name\":\"Tre Spinka\",\"email\":\"claud.donnelly@example.com\",\"file\":[]},{\"name\":\"Dr. Oswald Deckow III\",\"email\":\"august.swift@example.org\",\"file\":[]},{\"name\":\"Pascale Stoltenberg V\",\"email\":\"cayla.fisher@example.com\",\"file\":[]},{\"name\":\"David Wilkinson\",\"email\":\"delphine.schumm@example.net\",\"file\":[]},{\"name\":\"Kings Kings\",\"email\":\"kingsonly13c@gmail.com\",\"file\":[]}]}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display the specified resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user\/getuser\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user\/getuser\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "ut",
+                                    "description": "The ID of the getuser."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 400,
+                            "body": "{\"status\":\"error\",\"message\":\"No user was found with the above id ut\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Remove the specified resource from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user\/deleteuser\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user\/deleteuser\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "et",
+                                    "description": "The ID of the deleteuser."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "57"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 400,
+                            "body": "{\"status\":\"error\",\"message\":\"No user was found with the above id et\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "This function is responsibloe for determining the total number of users who are registered on the systerm.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user\/totalusers",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user\/totalusers"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "56"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"data\":15}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Site management",
+            "description": "\nAPIs for managing basic site requirments such as login, logout, registration etc",
+            "item": [
+                {
+                    "name": "POST api\/site\/register",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/site\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/site\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"kingsonly13c@gmail.com\",\"password\":\"firstoctober\",\"firstname\":\"kingsley\",\"lastname\":\"Achumie\\nThis route is responsible for enabling a user to register and create an account on the system\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"status\": \"success\",\n \"message\": \"user created successfully\",\n \"data\": {\n     \"email\": \"kingsonly13c@gmail.com\",\n     \"name\": \"Kings Kings\",\n     \"updated_at\": \"2023-04-14T15:28:27.000000Z\",\n     \"created_at\": \"2023-04-14T15:28:27.000000Z\",\n     \"id\": 16,\n     \"reverse\": 1681486107\n   }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/site\/confirmemail\/{code}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/site\/confirmemail\/:code",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/site\/confirmemail\/:code",
+                            "variable": [
+                                {
+                                    "id": "code",
+                                    "key": "code",
+                                    "value": "quia",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"code\":\"rdtgfytr678\\nThis route is responsible for confirming emails after a user registers.\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"status\": \"success\",\n \"message\": \"Email successfully verified\",\n \"data\": {\n     \"id\": 11,\n     \"name\": \"Kings Kings\",\n     \"email\": \"kingsonly13c@gmail.com\",\n     \"email_verified_at\": \"2023-05-06T04:05:33.000000Z\",\n     \"passwordresetcode\": \"ZAB4631572\",\n     \"created_at\": \"2023-04-14T14:49:57.000000Z\",\n     \"updated_at\": \"2023-05-06T15:34:33.000000Z\"\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/site\/login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/site\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/site\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"kingsonly13c@gmail.com\",\"password\":\"firstoctober\\nThis route is responsible for enabling a user to login into the system\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"data\": {\n     \"name\": \"Prof. Morris Boehm\",\n     \"token\": \"3|XyZ0nQXDCq4ZN8Z81ILGSvJMTRDDtGDMAXeWGip4\",\n     \"email\": \"damion.mante@example.com\",\n     \"status\": \"success\",\n     \"message\": \"user logged in\"\n    }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/site\/sendpasswordresetlink",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/site\/sendpasswordresetlink",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/site\/sendpasswordresetlink"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"kings@gmail.com\\nThis route is responsible for sending password reset link to a user when the user wants to reset their password\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"status\": \"success\",\n \"message\": \"Please check your email for further instruction\",\n \"data\": {\n     \"firstname\": \"Gavin Abbott\",\n     \"link\": \"\/recoverpassword\/1683386125VJZ3625741\"\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST api\/site\/recoverpassword\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/site\/recoverpassword\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/site\/recoverpassword\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "soluta",
+                                    "description": "This id is used to fetch the user from the database which password needs to be changed."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"password\":\"firstoctober\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"status\": \"success\",\n \"message\": \"password changed successfully\",\n \"data\": {\n     \"id\": 1,\n     \"name\": \"Gavin Abbott\",\n     \"email\": \"noe.wisozk@example.org\",\n     \"email_verified_at\": \"2023-05-06T04:05:23.000000Z\",\n     \"passwordresetcode\": 1683386423,\n     \"created_at\": \"2023-04-12T14:05:43.000000Z\",\n     \"updated_at\": \"2023-05-06T15:20:23.000000Z\"\n   }\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

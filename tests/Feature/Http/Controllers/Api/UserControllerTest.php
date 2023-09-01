@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Http\Controllers\Api;
 
+use App\Models\Followers;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -19,37 +20,13 @@ class UserControllerTest extends TestCase
         User::factory(10)->create();
         // goto the users route
         $this->userCreate();
-        $response = $this->get('/api/allusers');
+        $response = $this->get('/api/user');
         // start assertions here .
         $response->assertStatus(200)->assertJsonStructure([
             "data"=>[
-                "*" =>[
-                    "name"
-                ]
-            ]
-            
-        ]);
-    }
-
-    public function test_if_a_single_user_an_be_fetched(){
-        User::factory(10)->create();
-        $this->userCreate();
-        $response = $this->get('/api/getuser/5');
-        $response->assertStatus(200)->assertJsonStructure([
-            "data"=>[
                 "name"
+                
             ]
-            
-        ]);
-    }
-
-    public function test_to_confirm_that_user_doesnot_exist(){
-        User::factory(10)->create();
-        $this->userCreate();
-        $response = $this->get('/api/getuser/16');
-        $response->assertStatus(400)->assertJsonStructure([
-            "status",
-            "message"
             
         ]);
     }
@@ -58,22 +35,58 @@ class UserControllerTest extends TestCase
 
         User::factory(10)->create();
         $this->userCreate();
-        $response = $this->get('/api/deleteuser/5');
-        $response->assertStatus(200);
-        $this->assertDatabaseMissing('users', [
-            'id' => 5,
+        $response = $this->get('/api/user/deleteuser');
+        $response->assertStatus(200)->assertJsonStructure([
+            "status",
+            "message"
         ]);
+        
+    }
+    
+    public function test_to_see_if_followers_fetched_are_correct_for_a_perticular_user(){
+        User::factory(10)->create();
+        $user = $this->userCreate();
+        Followers::factory()->count(5)->sequence(
+            ['user_id' => $user->id ,"user_follower_id" => 1],
+            ['user_id' => $user->id ,"user_follower_id" => 2],
+            ['user_id' => $user->id ,"user_follower_id" => 3],
+            ['user_id' => $user->id ,"user_follower_id" =>4],
+            ['user_id' => $user->id ,"user_follower_id" => 5],
+        )->create();
+        $response = $this->get('/api/user/followers');
+        $response->assertOk()->assertJsonStructure(
+            [
+                "data" => [
+                    "*" =>[
+                        "id",
+                        "name",
+                        "image"
+                    ]
+                ]
+            ]
+        );
+        
     }
 
-    public function test_that_total_users_is_correct(){
+    public function test_that_total_followers_is_correct(){
         User::factory(10)->create();
-        $response = $this->get('/api/totalusers');
-        $response->assertJson(
+        $user = $this->userCreate();
+        Followers::factory()->count(5)->sequence(
+            ['user_id' => $user->id ,"user_follower_id" => 1],
+            ['user_id' => $user->id ,"user_follower_id" => 2],
+            ['user_id' => $user->id ,"user_follower_id" => 3],
+            ['user_id' => $user->id ,"user_follower_id" =>4],
+            ['user_id' => $user->id ,"user_follower_id" => 5],
+        )->create();
+        $response = $this->get('/api/user/totalfollowers');
+        $response->assertStatus(200)->assertJson(
             [
                 "status" => "success",
-                "data" => 10
+                "data" => 5
             ]
             );
         
     }
+
+    //followers
 }

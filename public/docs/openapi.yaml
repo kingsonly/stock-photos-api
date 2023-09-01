@@ -1,0 +1,958 @@
+openapi: 3.0.3
+info:
+  title: StockPhotos
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/user:
+    get:
+      summary: ''
+      operationId: getApiUser
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/user/allusers:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      name: 'Gavin Abbott'
+                      email: noe.wisozk@example.org
+                      file:
+                        -
+                          type: image
+                          file: '0'
+                          name: 'Prof. Mariano Mitchell'
+                          views: 3
+                          date: '2023-04-12T14:05:48.000000Z'
+                          tags:
+                            -
+                              tag_name:
+                                name: 'Isai Murray'
+                            -
+                              tag_name:
+                                name: 'Isai Murray'
+                            -
+                              tag_name:
+                                name: 'Isai Murray'
+                            -
+                              tag_name:
+                                name: 'Isai Murray'
+                            -
+                              tag_name:
+                                name: 'Isai Murray'
+                            -
+                              tag_name:
+                                name: 'Isai Murray'
+                            -
+                              tag_name:
+                                name: 'Isai Murray'
+                            -
+                              tag_name:
+                                name: 'Isai Murray'
+                            -
+                              tag_name:
+                                name: 'Isai Murray'
+                            -
+                              tag_name:
+                                name: 'Isai Murray'
+                        -
+                          type: image
+                          file: '0'
+                          name: 'Jaunita Howell'
+                          views: 9
+                          date: '2023-04-12T14:05:48.000000Z'
+                          tags: []
+                        -
+                          type: image
+                          file: '0'
+                          name: 'Kristin White'
+                          views: 1
+                          date: '2023-04-12T14:05:48.000000Z'
+                          tags: []
+                        -
+                          type: video
+                          file: '0'
+                          name: 'Athena Ebert Jr.'
+                          views: 0
+                          date: '2023-04-12T14:05:48.000000Z'
+                          tags: []
+                        -
+                          type: video
+                          file: '0'
+                          name: 'Miss Josefina Grady'
+                          views: 2
+                          date: '2023-04-12T14:05:48.000000Z'
+                          tags: []
+                        -
+                          type: video
+                          file: '0'
+                          name: 'Dolly Buckridge'
+                          views: 5
+                          date: '2023-04-12T14:05:48.000000Z'
+                          tags: []
+                        -
+                          type: video
+                          file: '0'
+                          name: 'Alberto Howell'
+                          views: 8
+                          date: '2023-04-12T14:05:48.000000Z'
+                          tags: []
+                        -
+                          type: image
+                          file: '0'
+                          name: 'Prof. Alfonso Wintheiser'
+                          views: 9
+                          date: '2023-04-12T14:05:48.000000Z'
+                          tags: []
+                        -
+                          type: image
+                          file: '0'
+                          name: 'Reuben Hintz'
+                          views: 5
+                          date: '2023-04-12T14:05:48.000000Z'
+                          tags: []
+                        -
+                          type: video
+                          file: '0'
+                          name: 'Mrs. Verla Grady'
+                          views: 3
+                          date: '2023-04-12T14:05:48.000000Z'
+                          tags: []
+                    -
+                      name: 'Frederic Hane'
+                      email: paul.tillman@example.org
+                      file: []
+                    -
+                      name: 'Kennedy White'
+                      email: mwatsica@example.net
+                      file: []
+                    -
+                      name: 'Cloyd Brekke'
+                      email: bogan.benjamin@example.net
+                      file: []
+                    -
+                      name: 'Monica Marvin'
+                      email: klein.kelly@example.org
+                      file: []
+                    -
+                      name: 'Tre Spinka'
+                      email: claud.donnelly@example.com
+                      file: []
+                    -
+                      name: 'Dr. Oswald Deckow III'
+                      email: august.swift@example.org
+                      file: []
+                    -
+                      name: 'Pascale Stoltenberg V'
+                      email: cayla.fisher@example.com
+                      file: []
+                    -
+                      name: 'David Wilkinson'
+                      email: delphine.schumm@example.net
+                      file: []
+                    -
+                      name: 'Kings Kings'
+                      email: kingsonly13c@gmail.com
+                      file: []
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        name: 'Gavin Abbott'
+                        email: noe.wisozk@example.org
+                        file:
+                          -
+                            type: image
+                            file: '0'
+                            name: 'Prof. Mariano Mitchell'
+                            views: 3
+                            date: '2023-04-12T14:05:48.000000Z'
+                            tags:
+                              -
+                                tag_name:
+                                  name: 'Isai Murray'
+                              -
+                                tag_name:
+                                  name: 'Isai Murray'
+                              -
+                                tag_name:
+                                  name: 'Isai Murray'
+                              -
+                                tag_name:
+                                  name: 'Isai Murray'
+                              -
+                                tag_name:
+                                  name: 'Isai Murray'
+                              -
+                                tag_name:
+                                  name: 'Isai Murray'
+                              -
+                                tag_name:
+                                  name: 'Isai Murray'
+                              -
+                                tag_name:
+                                  name: 'Isai Murray'
+                              -
+                                tag_name:
+                                  name: 'Isai Murray'
+                              -
+                                tag_name:
+                                  name: 'Isai Murray'
+                          -
+                            type: image
+                            file: '0'
+                            name: 'Jaunita Howell'
+                            views: 9
+                            date: '2023-04-12T14:05:48.000000Z'
+                            tags: []
+                          -
+                            type: image
+                            file: '0'
+                            name: 'Kristin White'
+                            views: 1
+                            date: '2023-04-12T14:05:48.000000Z'
+                            tags: []
+                          -
+                            type: video
+                            file: '0'
+                            name: 'Athena Ebert Jr.'
+                            views: 0
+                            date: '2023-04-12T14:05:48.000000Z'
+                            tags: []
+                          -
+                            type: video
+                            file: '0'
+                            name: 'Miss Josefina Grady'
+                            views: 2
+                            date: '2023-04-12T14:05:48.000000Z'
+                            tags: []
+                          -
+                            type: video
+                            file: '0'
+                            name: 'Dolly Buckridge'
+                            views: 5
+                            date: '2023-04-12T14:05:48.000000Z'
+                            tags: []
+                          -
+                            type: video
+                            file: '0'
+                            name: 'Alberto Howell'
+                            views: 8
+                            date: '2023-04-12T14:05:48.000000Z'
+                            tags: []
+                          -
+                            type: image
+                            file: '0'
+                            name: 'Prof. Alfonso Wintheiser'
+                            views: 9
+                            date: '2023-04-12T14:05:48.000000Z'
+                            tags: []
+                          -
+                            type: image
+                            file: '0'
+                            name: 'Reuben Hintz'
+                            views: 5
+                            date: '2023-04-12T14:05:48.000000Z'
+                            tags: []
+                          -
+                            type: video
+                            file: '0'
+                            name: 'Mrs. Verla Grady'
+                            views: 3
+                            date: '2023-04-12T14:05:48.000000Z'
+                            tags: []
+                      -
+                        name: 'Frederic Hane'
+                        email: paul.tillman@example.org
+                        file: []
+                      -
+                        name: 'Kennedy White'
+                        email: mwatsica@example.net
+                        file: []
+                      -
+                        name: 'Cloyd Brekke'
+                        email: bogan.benjamin@example.net
+                        file: []
+                      -
+                        name: 'Monica Marvin'
+                        email: klein.kelly@example.org
+                        file: []
+                      -
+                        name: 'Tre Spinka'
+                        email: claud.donnelly@example.com
+                        file: []
+                      -
+                        name: 'Dr. Oswald Deckow III'
+                        email: august.swift@example.org
+                        file: []
+                      -
+                        name: 'Pascale Stoltenberg V'
+                        email: cayla.fisher@example.com
+                        file: []
+                      -
+                        name: 'David Wilkinson'
+                        email: delphine.schumm@example.net
+                        file: []
+                      -
+                        name: 'Kings Kings'
+                        email: kingsonly13c@gmail.com
+                        file: []
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          example: 'Gavin Abbott'
+                        email:
+                          type: string
+                          example: noe.wisozk@example.org
+                        file:
+                          type: array
+                          example:
+                            -
+                              type: image
+                              file: '0'
+                              name: 'Prof. Mariano Mitchell'
+                              views: 3
+                              date: '2023-04-12T14:05:48.000000Z'
+                              tags:
+                                -
+                                  tag_name:
+                                    name: 'Isai Murray'
+                                -
+                                  tag_name:
+                                    name: 'Isai Murray'
+                                -
+                                  tag_name:
+                                    name: 'Isai Murray'
+                                -
+                                  tag_name:
+                                    name: 'Isai Murray'
+                                -
+                                  tag_name:
+                                    name: 'Isai Murray'
+                                -
+                                  tag_name:
+                                    name: 'Isai Murray'
+                                -
+                                  tag_name:
+                                    name: 'Isai Murray'
+                                -
+                                  tag_name:
+                                    name: 'Isai Murray'
+                                -
+                                  tag_name:
+                                    name: 'Isai Murray'
+                                -
+                                  tag_name:
+                                    name: 'Isai Murray'
+                            -
+                              type: image
+                              file: '0'
+                              name: 'Jaunita Howell'
+                              views: 9
+                              date: '2023-04-12T14:05:48.000000Z'
+                              tags: []
+                            -
+                              type: image
+                              file: '0'
+                              name: 'Kristin White'
+                              views: 1
+                              date: '2023-04-12T14:05:48.000000Z'
+                              tags: []
+                            -
+                              type: video
+                              file: '0'
+                              name: 'Athena Ebert Jr.'
+                              views: 0
+                              date: '2023-04-12T14:05:48.000000Z'
+                              tags: []
+                            -
+                              type: video
+                              file: '0'
+                              name: 'Miss Josefina Grady'
+                              views: 2
+                              date: '2023-04-12T14:05:48.000000Z'
+                              tags: []
+                            -
+                              type: video
+                              file: '0'
+                              name: 'Dolly Buckridge'
+                              views: 5
+                              date: '2023-04-12T14:05:48.000000Z'
+                              tags: []
+                            -
+                              type: video
+                              file: '0'
+                              name: 'Alberto Howell'
+                              views: 8
+                              date: '2023-04-12T14:05:48.000000Z'
+                              tags: []
+                            -
+                              type: image
+                              file: '0'
+                              name: 'Prof. Alfonso Wintheiser'
+                              views: 9
+                              date: '2023-04-12T14:05:48.000000Z'
+                              tags: []
+                            -
+                              type: image
+                              file: '0'
+                              name: 'Reuben Hintz'
+                              views: 5
+                              date: '2023-04-12T14:05:48.000000Z'
+                              tags: []
+                            -
+                              type: video
+                              file: '0'
+                              name: 'Mrs. Verla Grady'
+                              views: 3
+                              date: '2023-04-12T14:05:48.000000Z'
+                              tags: []
+                          items:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                                example: image
+                              file:
+                                type: string
+                                example: '0'
+                              name:
+                                type: string
+                                example: 'Prof. Mariano Mitchell'
+                              views:
+                                type: integer
+                                example: 3
+                              date:
+                                type: string
+                                example: '2023-04-12T14:05:48.000000Z'
+                              tags:
+                                type: array
+                                example:
+                                  -
+                                    tag_name:
+                                      name: 'Isai Murray'
+                                  -
+                                    tag_name:
+                                      name: 'Isai Murray'
+                                  -
+                                    tag_name:
+                                      name: 'Isai Murray'
+                                  -
+                                    tag_name:
+                                      name: 'Isai Murray'
+                                  -
+                                    tag_name:
+                                      name: 'Isai Murray'
+                                  -
+                                    tag_name:
+                                      name: 'Isai Murray'
+                                  -
+                                    tag_name:
+                                      name: 'Isai Murray'
+                                  -
+                                    tag_name:
+                                      name: 'Isai Murray'
+                                  -
+                                    tag_name:
+                                      name: 'Isai Murray'
+                                  -
+                                    tag_name:
+                                      name: 'Isai Murray'
+                                items:
+                                  type: object
+                                  properties:
+                                    tag_name:
+                                      type: object
+                                      properties: { name: { type: string, example: 'Isai Murray' } }
+      tags:
+        - Endpoints
+      security: []
+  '/api/user/getuser/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        400:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: error
+                  message: 'No user was found with the above id ut'
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: 'No user was found with the above id ut'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the getuser.'
+        example: ut
+        required: true
+        schema:
+          type: string
+  '/api/user/deleteuser/{id}':
+    get:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses:
+        400:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: error
+                  message: 'No user was found with the above id et'
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: 'No user was found with the above id et'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the deleteuser.'
+        example: et
+        required: true
+        schema:
+          type: string
+  /api/user/totalusers:
+    get:
+      summary: 'This function is responsibloe for determining the total number of users who are registered on the systerm.'
+      operationId: thisFunctionIsResponsibloeForDeterminingTheTotalNumberOfUsersWhoAreRegisteredOnTheSysterm
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  data: 15
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  data:
+                    type: integer
+                    example: 15
+      tags:
+        - Endpoints
+      security: []
+  /api/site/register:
+    post:
+      summary: ''
+      operationId: postApiSiteRegister
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: 'user created successfully'
+                  data:
+                    email: kingsonly13c@gmail.com
+                    name: 'Kings Kings'
+                    updated_at: '2023-04-14T15:28:27.000000Z'
+                    created_at: '2023-04-14T15:28:27.000000Z'
+                    id: 16
+                    reverse: 1681486107
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: 'user created successfully'
+                  data:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                        example: kingsonly13c@gmail.com
+                      name:
+                        type: string
+                        example: 'Kings Kings'
+                      updated_at:
+                        type: string
+                        example: '2023-04-14T15:28:27.000000Z'
+                      created_at:
+                        type: string
+                        example: '2023-04-14T15:28:27.000000Z'
+                      id:
+                        type: integer
+                        example: 16
+                      reverse:
+                        type: integer
+                        example: 1681486107
+      tags:
+        - 'Site management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: kingsonly13c@gmail.com
+                password:
+                  type: string
+                  description: 'The password of the user.'
+                  example: firstoctober
+                firstname:
+                  type: string
+                  description: 'The firstname of the user.'
+                  example: kingsley
+                lastname:
+                  type: string
+                  description: 'The lastname of the user.'
+                  example: "Achumie\nThis route is responsible for enabling a user to register and create an account on the system"
+              required:
+                - email
+                - password
+                - firstname
+                - lastname
+      security: []
+  '/api/site/confirmemail/{code}':
+    get:
+      summary: ''
+      operationId: getApiSiteConfirmemailCode
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: 'Email successfully verified'
+                  data:
+                    id: 11
+                    name: 'Kings Kings'
+                    email: kingsonly13c@gmail.com
+                    email_verified_at: '2023-05-06T04:05:33.000000Z'
+                    passwordresetcode: ZAB4631572
+                    created_at: '2023-04-14T14:49:57.000000Z'
+                    updated_at: '2023-05-06T15:34:33.000000Z'
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: 'Email successfully verified'
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 11
+                      name:
+                        type: string
+                        example: 'Kings Kings'
+                      email:
+                        type: string
+                        example: kingsonly13c@gmail.com
+                      email_verified_at:
+                        type: string
+                        example: '2023-05-06T04:05:33.000000Z'
+                      passwordresetcode:
+                        type: string
+                        example: ZAB4631572
+                      created_at:
+                        type: string
+                        example: '2023-04-14T14:49:57.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2023-05-06T15:34:33.000000Z'
+      tags:
+        - 'Site management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                  description: 'The code used to verify  user email.'
+                  example: "rdtgfytr678\nThis route is responsible for confirming emails after a user registers."
+              required:
+                - code
+      security: []
+    parameters:
+      -
+        in: path
+        name: code
+        description: ''
+        example: quia
+        required: true
+        schema:
+          type: string
+  /api/site/login:
+    post:
+      summary: ''
+      operationId: postApiSiteLogin
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    name: 'Prof. Morris Boehm'
+                    token: 3|XyZ0nQXDCq4ZN8Z81ILGSvJMTRDDtGDMAXeWGip4
+                    email: damion.mante@example.com
+                    status: success
+                    message: 'user logged in'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: 'Prof. Morris Boehm'
+                      token:
+                        type: string
+                        example: 3|XyZ0nQXDCq4ZN8Z81ILGSvJMTRDDtGDMAXeWGip4
+                      email:
+                        type: string
+                        example: damion.mante@example.com
+                      status:
+                        type: string
+                        example: success
+                      message:
+                        type: string
+                        example: 'user logged in'
+      tags:
+        - 'Site management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: kingsonly13c@gmail.com
+                password:
+                  type: string
+                  description: 'The password of the user.'
+                  example: "firstoctober\nThis route is responsible for enabling a user to login into the system"
+              required:
+                - email
+                - password
+      security: []
+  /api/site/sendpasswordresetlink:
+    post:
+      summary: ''
+      operationId: postApiSiteSendpasswordresetlink
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: 'Please check your email for further instruction'
+                  data:
+                    firstname: 'Gavin Abbott'
+                    link: /recoverpassword/1683386125VJZ3625741
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: 'Please check your email for further instruction'
+                  data:
+                    type: object
+                    properties:
+                      firstname:
+                        type: string
+                        example: 'Gavin Abbott'
+                      link:
+                        type: string
+                        example: /recoverpassword/1683386125VJZ3625741
+      tags:
+        - 'Site management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email used to send password reset link to a user .'
+                  example: "kings@gmail.com\nThis route is responsible for sending password reset link to a user when the user wants to reset their password"
+              required:
+                - email
+      security: []
+  '/api/site/recoverpassword/{id}':
+    post:
+      summary: ''
+      operationId: postApiSiteRecoverpasswordId
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: 'password changed successfully'
+                  data:
+                    id: 1
+                    name: 'Gavin Abbott'
+                    email: noe.wisozk@example.org
+                    email_verified_at: '2023-05-06T04:05:23.000000Z'
+                    passwordresetcode: 1683386423
+                    created_at: '2023-04-12T14:05:43.000000Z'
+                    updated_at: '2023-05-06T15:20:23.000000Z'
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: 'password changed successfully'
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'Gavin Abbott'
+                      email:
+                        type: string
+                        example: noe.wisozk@example.org
+                      email_verified_at:
+                        type: string
+                        example: '2023-05-06T04:05:23.000000Z'
+                      passwordresetcode:
+                        type: integer
+                        example: 1683386423
+                      created_at:
+                        type: string
+                        example: '2023-04-12T14:05:43.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2023-05-06T15:20:23.000000Z'
+      tags:
+        - 'Site management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                  description: 'The password which would be saved as the new users password .'
+                  example: firstoctober
+              required:
+                - password
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'This id is used to fetch the user from the database which password needs to be changed.'
+        example: soluta
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: Endpoints
+    description: ''
+  -
+    name: 'Site management'
+    description: "\nAPIs for managing basic site requirments such as login, logout, registration etc"
