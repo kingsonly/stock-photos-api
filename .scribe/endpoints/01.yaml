@@ -1,0 +1,354 @@
+name: 'Site management'
+description: |-
+
+  APIs for managing basic site requirments such as login, logout, registration etc
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/site/register
+    metadata:
+      groupName: 'Site management'
+      groupDescription: |-
+
+        APIs for managing basic site requirments such as login, logout, registration etc
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'The email of the user.'
+        required: true
+        example: kingsonly13c@gmail.com
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'The password of the user.'
+        required: true
+        example: firstoctober
+        type: string
+        custom: []
+      firstname:
+        name: firstname
+        description: 'The firstname of the user.'
+        required: true
+        example: kingsley
+        type: string
+        custom: []
+      lastname:
+        name: lastname
+        description: 'The lastname of the user.'
+        required: true
+        example: |-
+          Achumie
+          This route is responsible for enabling a user to register and create an account on the system
+        type: string
+        custom: []
+    cleanBodyParameters:
+      email: kingsonly13c@gmail.com
+      password: firstoctober
+      firstname: kingsley
+      lastname: |-
+        Achumie
+        This route is responsible for enabling a user to register and create an account on the system
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "status": "success",
+           "message": "user created successfully",
+           "data": {
+               "email": "kingsonly13c@gmail.com",
+               "name": "Kings Kings",
+               "updated_at": "2023-04-14T15:28:27.000000Z",
+               "created_at": "2023-04-14T15:28:27.000000Z",
+               "id": 16,
+               "reverse": 1681486107
+             }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/site/confirmemail/{code}'
+    metadata:
+      groupName: 'Site management'
+      groupDescription: |-
+
+        APIs for managing basic site requirments such as login, logout, registration etc
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      code:
+        name: code
+        description: ''
+        required: true
+        example: quia
+        type: string
+        custom: []
+    cleanUrlParameters:
+      code: quia
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      code:
+        name: code
+        description: 'The code used to verify  user email.'
+        required: true
+        example: |-
+          rdtgfytr678
+          This route is responsible for confirming emails after a user registers.
+        type: string
+        custom: []
+    cleanBodyParameters:
+      code: |-
+        rdtgfytr678
+        This route is responsible for confirming emails after a user registers.
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "status": "success",
+           "message": "Email successfully verified",
+           "data": {
+               "id": 11,
+               "name": "Kings Kings",
+               "email": "kingsonly13c@gmail.com",
+               "email_verified_at": "2023-05-06T04:05:33.000000Z",
+               "passwordresetcode": "ZAB4631572",
+               "created_at": "2023-04-14T14:49:57.000000Z",
+               "updated_at": "2023-05-06T15:34:33.000000Z"
+           }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/site/login
+    metadata:
+      groupName: 'Site management'
+      groupDescription: |-
+
+        APIs for managing basic site requirments such as login, logout, registration etc
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'The email of the user.'
+        required: true
+        example: kingsonly13c@gmail.com
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'The password of the user.'
+        required: true
+        example: |-
+          firstoctober
+          This route is responsible for enabling a user to login into the system
+        type: string
+        custom: []
+    cleanBodyParameters:
+      email: kingsonly13c@gmail.com
+      password: |-
+        firstoctober
+        This route is responsible for enabling a user to login into the system
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "data": {
+               "name": "Prof. Morris Boehm",
+               "token": "3|XyZ0nQXDCq4ZN8Z81ILGSvJMTRDDtGDMAXeWGip4",
+               "email": "damion.mante@example.com",
+               "status": "success",
+               "message": "user logged in"
+              }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/site/sendpasswordresetlink
+    metadata:
+      groupName: 'Site management'
+      groupDescription: |-
+
+        APIs for managing basic site requirments such as login, logout, registration etc
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'The email used to send password reset link to a user .'
+        required: true
+        example: |-
+          kings@gmail.com
+          This route is responsible for sending password reset link to a user when the user wants to reset their password
+        type: string
+        custom: []
+    cleanBodyParameters:
+      email: |-
+        kings@gmail.com
+        This route is responsible for sending password reset link to a user when the user wants to reset their password
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "status": "success",
+           "message": "Please check your email for further instruction",
+           "data": {
+               "firstname": "Gavin Abbott",
+               "link": "/recoverpassword/1683386125VJZ3625741"
+           }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/site/recoverpassword/{id}'
+    metadata:
+      groupName: 'Site management'
+      groupDescription: |-
+
+        APIs for managing basic site requirments such as login, logout, registration etc
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'This id is used to fetch the user from the database which password needs to be changed.'
+        required: true
+        example: soluta
+        type: string
+        custom: []
+    cleanUrlParameters:
+      id: soluta
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      password:
+        name: password
+        description: 'The password which would be saved as the new users password .'
+        required: true
+        example: firstoctober
+        type: string
+        custom: []
+    cleanBodyParameters:
+      password: firstoctober
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "status": "success",
+           "message": "password changed successfully",
+           "data": {
+               "id": 1,
+               "name": "Gavin Abbott",
+               "email": "noe.wisozk@example.org",
+               "email_verified_at": "2023-05-06T04:05:23.000000Z",
+               "passwordresetcode": 1683386423,
+               "created_at": "2023-04-12T14:05:43.000000Z",
+               "updated_at": "2023-05-06T15:20:23.000000Z"
+             }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
