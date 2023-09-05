@@ -48,7 +48,7 @@ Route::group(['prefix' => 'followers', 'middleware' => ['auth:sanctum']], functi
 
 Route::group(['prefix' => 'user'], function () {
 
-    Route::get("g/etuser/{id}", [UserController::class, 'show']);
+    Route::get("getuser/{id}", [UserController::class, 'show']);
 });
 
 
