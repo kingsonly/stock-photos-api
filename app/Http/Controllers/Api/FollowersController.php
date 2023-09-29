@@ -112,7 +112,24 @@ class FollowersController extends Controller
      * 
      * @return \Illuminate\Http\JsonResponse
      */
-    public function followers()
+    public function followers($id)
     {
+         // Find the user by their ID
+
+         $user = auth()->guard('sanctum')->user();
+        $followers = Followers::where(["user_id" => $loggedinuser->id])->get();
+        return FollowersResource::collection($followers);
+
+        $user = User::find($id);
+
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        // Get the user's followers with details
+        $followers = $user->followers()->with('users')->get();
+
+        return response()->json(['user' => $user, 'followers' => $followers]);
+     
     }
 }
