@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\FollowersController;
+use App\Http\Controllers\Api\CollectionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\SiteController;
@@ -44,6 +45,18 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth:sanctum']], function ()
 Route::group(['prefix' => 'followers', 'middleware' => ['auth:sanctum']], function () {
     Route::get('/follow/{id}', [FollowersController::class, 'follow'])->name('follow');
     Route::get('/unfollow/{id}', [FollowersController::class, 'unfollow'])->name('unfollow');
+});
+
+// collections route
+Route::group(['prefix' => 'collection', 'middleware' => ['auth:sanctum']], function () {
+    Route::get('/', [CollectionController::class, 'index'])->name('collections');
+    Route::post('/', [CollectionController::class, 'store']);
+    Route::get('/create', [CollectionController::class, 'create']);
+    Route::put('/{id}', [CollectionController::class, 'update']);
+    Route::get('/{id}', [CollectionController::class, 'show']);
+    Route::put('/{id}/edit', [CollectionController::class, 'edit']);
+    Route::delete('/{id}', [CollectionController::class, 'destroy']);
+    Route::get('/search/{search}', [CollectionController::class, 'search']);
 });
 
 Route::group(['prefix' => 'user'], function () {
