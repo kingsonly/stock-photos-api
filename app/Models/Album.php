@@ -10,6 +10,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Album extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'album_name',
+        'description',
+        'user_id',
+    ];
     public function files(): HasMany{
         return $this->hasMany(AlbumFileLink::class,"album_id");
     }
