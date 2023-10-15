@@ -2,18 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\tags;
+use App\Models\Tags;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\TagNameResouorce;
+use Illuminate\Support\Facades\Auth;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class TagsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $tags = QueryBuilder::for(Tags::class)
+        ->allowedFilters('creator_id')
+        ->defaultSort('-created_at')
+        ->allowedSorts(['creator_id', 'created_at'])
+        ->paginate();
+
+        return new TagNameResouorce($tags);
+        //return new TagCollection($tags);
+
     }
 
     /**
@@ -29,15 +41,19 @@ class TagsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validated();
+        $tag = Auth::user()->tags()->create($validated);
+
+        return new TagNameResouorce($tag);
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(tags $tags)
+    public function show(Request $request, Tags $tag)
     {
-        //
+        return new TagNameResouorce($tag);
     }
 
     /**

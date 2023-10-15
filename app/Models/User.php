@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Mpociot\Reflection\DocBlock\Tag;
+use App\Models\Tags;
 
 class User extends Authenticatable
 {
@@ -43,8 +45,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function album():HasMany{
+    public function album():HasMany
+    {
         return $this->hasMany(Album::class,"user_id");
+    }
+
+    public function tags():HasMany
+    {
+        return $this->hasMany(Tags::class, 'creator_id');
     }
 
     public function files():HasMany{

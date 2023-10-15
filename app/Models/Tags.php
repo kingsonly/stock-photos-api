@@ -10,7 +10,13 @@ class Tags extends Model
 {
     use HasFactory;
     
-    public function file():HasMany{
+    public function file():HasMany
+    {
         return $this->hasMany(StockFilePathTag::class,"tag_id");
+    }
+
+    public function tags():HasMany
+    {
+        return $this->hasMany(Tags::class, 'creator_id');
     }
 }

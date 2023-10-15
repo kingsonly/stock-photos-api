@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->integer("admin_id")->nullable();
+            $table->foreignId("creator_id")->constrained('user');
             $table->timestamps();
         });
     }

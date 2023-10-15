@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\SiteController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\TagsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,14 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth:sanctum']], function ()
     Route::get("/deleteuser", [UserController::class, 'destroy']);
     Route::get("/followers", [UserController::class, 'followers']);
     Route::get("/totalfollowers", [UserController::class, 'totalFollowers']);
+});
+
+// Tag route
+Route::group(['prefix' => 'tag', 'middleware' => ['auth:sanctum']], function () {
+    Route::get('/', [TagsController::class, 'show'])->name('tags');
+    Route::get("/create", [TagsController::class, 'store']);
+    Route::get("/followers", [TagsController::class, 'followers']);
+    Route::get("/totalfollowers", [TagsController::class, 'totalFollowers']);
 });
 
 Route::group(['prefix' => 'followers', 'middleware' => ['auth:sanctum']], function () {
