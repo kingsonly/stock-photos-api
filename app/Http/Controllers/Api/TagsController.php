@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Models\Tags;
 use App\Models\User;
@@ -17,14 +17,16 @@ class TagsController extends Controller
      */
     public function index(Request $request)
     {
-        $tags = QueryBuilder::for(Tags::class)
+        /**$tags = QueryBuilder::for(Tags::class)
         ->allowedFilters('creator_id')
         ->defaultSort('-created_at')
         ->allowedSorts(['creator_id', 'created_at'])
         ->paginate();
 
-        return new TagNameResouorce($tags);
+        return new TagNameResouorce($tags);**/
         //return new TagCollection($tags);
+
+        return response()->json(Tags::all());
 
     }
 
@@ -42,9 +44,9 @@ class TagsController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validated();
-        $tag = Auth::user()->tags()->create($validated);
+        //$tag = Auth::user()->tags()->create($validated);
 
-        return new TagNameResouorce($tag);
+        //return new TagNameResouorce($tag);
 
     }
 

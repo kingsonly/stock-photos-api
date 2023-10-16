@@ -1,11 +1,11 @@
 <?php
 
+use App\Http\Controllers\Api\TagsController;
 use App\Http\Controllers\Api\FollowersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\SiteController;
 use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\TagsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +33,7 @@ Route::group(['prefix' => 'site'], function () {
     });
 }); //->middlewareGroup();
 
-// users route
+//users route
 Route::group(['prefix' => 'user', 'middleware' => ['auth:sanctum']], function () {
     //Route::middleware('auth:sanctum')->group( function () {
     Route::get('/', [UserController::class, 'index'])->name('users');
@@ -42,13 +42,15 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth:sanctum']], function ()
     Route::get("/totalfollowers", [UserController::class, 'totalFollowers']);
 });
 
-// Tag route
+Route::get('tags', [TagsController::class, 'index'])->name('tags');
+
+/**Tag route
 Route::group(['prefix' => 'tag', 'middleware' => ['auth:sanctum']], function () {
     Route::get('/', [TagsController::class, 'show'])->name('tags');
     Route::get("/create", [TagsController::class, 'store']);
     Route::get("/followers", [TagsController::class, 'followers']);
     Route::get("/totalfollowers", [TagsController::class, 'totalFollowers']);
-});
+});*/
 
 Route::group(['prefix' => 'followers', 'middleware' => ['auth:sanctum']], function () {
     Route::get('/follow/{id}', [FollowersController::class, 'follow'])->name('follow');
