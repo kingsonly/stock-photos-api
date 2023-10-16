@@ -19,4 +19,13 @@ class Tags extends Model
     {
         return $this->hasMany(Tags::class, 'creator_id');
     }
+
+    protected $hidden = [
+        'updated_at'
+    ];
+
+    protected $fillable = [
+        'name',
+        'creator_id',
+    ];
 }

@@ -6,6 +6,9 @@ use App\Models\Tags;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreTagRequest;
+use App\Http\Requests\UpdateTagRequest;
+use App\Http\Resources\TagCollection;
 use App\Http\Resources\TagNameResouorce;
 use Illuminate\Support\Facades\Auth;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -26,7 +29,8 @@ class TagsController extends Controller
         return new TagNameResouorce($tags);**/
         //return new TagCollection($tags);
 
-        return response()->json(Tags::all());
+        //return response()->json(Tags::all());
+        return new TagCollection(Tags::all());
 
     }
 
@@ -41,12 +45,14 @@ class TagsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreTagRequest $request)
     {
         $validated = $request->validated();
-        //$tag = Auth::user()->tags()->create($validated);
 
-        //return new TagNameResouorce($tag);
+        $tag = Tags::create($validated);
+        
+
+        return new TagNameResouorce($tag);
 
     }
 
@@ -69,16 +75,20 @@ class TagsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, tags $tags)
+    public function update(UpdateTagRequest $request, Tags $tags)
     {
-        //
+        $validated = $request->validated();
+        $tags->update($validated);
+
+        return new TagNameResouorce($tags);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(tags $tags)
+    public function destroy(Request $request, Tags $tags)
     {
-        //
+        $tags->delete();
+        return response()->noContent();
     }
 }
