@@ -20,17 +20,13 @@ class TagsController extends Controller
      */
     public function index(Request $request)
     {
-        /**$tags = QueryBuilder::for(Tags::class)
+        $tags = QueryBuilder::for(Tags::class)
         ->allowedFilters('creator_id')
         ->defaultSort('-created_at')
         ->allowedSorts(['creator_id', 'created_at'])
         ->paginate();
 
-        return new TagNameResouorce($tags);**/
-        //return new TagCollection($tags);
-
-        //return response()->json(Tags::all());
-        return new TagCollection(Tags::all());
+        return new TagCollection($tags);
 
     }
 
@@ -49,8 +45,7 @@ class TagsController extends Controller
     {
         $validated = $request->validated();
 
-        $tag = Tags::create($validated);
-        
+        $tag = Auth::user()->tags()->create($validated);
 
         return new TagNameResouorce($tag);
 

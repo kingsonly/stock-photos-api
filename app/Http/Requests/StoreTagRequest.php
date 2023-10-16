@@ -23,7 +23,7 @@ class StoreTagRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'creator_id' => 'required',
+            'creator_id' => 'sometimes',
         ];
     }
 }

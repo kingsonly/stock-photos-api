@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,7 @@ class TagsFactory extends Factory
     {
         return [
             "name" => fake()->name(),
-            "admin_id" => 1
+            "creator_id" => User::factory(),
         ];
     }
 }

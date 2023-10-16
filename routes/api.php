@@ -42,16 +42,11 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth:sanctum']], function ()
     Route::get("/totalfollowers", [UserController::class, 'totalFollowers']);
 });
 
-//Route::get('tags', [TagsController::class, 'index'])->name('tags');
+//Tags route
+Route::middleware('auth:sanctum')->group(function () {
 Route::apiResource('tags', TagsController::class);
+});
 
-/**Tag route
-Route::group(['prefix' => 'tag', 'middleware' => ['auth:sanctum']], function () {
-    Route::get('/', [TagsController::class, 'show'])->name('tags');
-    Route::get("/create", [TagsController::class, 'store']);
-    Route::get("/followers", [TagsController::class, 'followers']);
-    Route::get("/totalfollowers", [TagsController::class, 'totalFollowers']);
-});*/
 
 Route::group(['prefix' => 'followers', 'middleware' => ['auth:sanctum']], function () {
     Route::get('/follow/{id}', [FollowersController::class, 'follow'])->name('follow');
